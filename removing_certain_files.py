@@ -1,5 +1,5 @@
 import os
-directory = "/media/utpal/Software/03"
+directory = "directory/of/the/folder/"
 
 files_in_directory = os.listdir(directory)
 filtered_files = [file for file in files_in_directory if file.endswith(".flac")]
