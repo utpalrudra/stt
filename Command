@@ -1,0 +1,39 @@
+Csv Generation:
+python bin/import_cv2.py ../as
+
+Training:
+
+python3 DeepSpeech.py --train_files ../as/clips/train.csv --dev_files ../as/clips/dev.csv --test_files ../as/clips/test.csv
+
+ftransc documentation:
+What is ftransc
+ftransc is the python audio conversion library. It can convert local files or files from youtube (even youtube playlists).
+
+Installing ftransc
+ftransc can be installed as follows:
+
+    pip install ftransc
+Then FFMpeg must also installed as follows:
+
+On Linux based systems:
+    sudo apt-get install ffmpeg lame flac vorbis-tools
+On Mac OS X:
+    brew install ffmpeg lame
+Examples
+Example 1 - converting from MP3 to OGG:
+
+    ftransc -f ogg filename.mp3
+The output file name for the above example will be 'filename.ogg'
+
+Example 2 - converting from MP3 to AAC, removing original file on success, using high quality preset:
+
+    ftransc -r -q extreme -f aac filename.mp3
+Example 3 - extract audio content from a video files into the MP3 format, use best quality preset:
+
+    ftransc -q insane -f mp3 filename2.avi filename3.mpg filename4.vob ...
+Example 4 - convert all audio files inside a given folder into WMA format. (This option is not recursive to child-folders)
+
+    ftransc -f wma --directory /path/to/folder_name
+Example 5 - convert all audio audio files (and extract all audio content from video files) inside a given folder recursively including all sub-/child-folders, ftransc should be used with the 'find' command in the pipeline as follows:
+
+    find /path/to/folder_name -type f -print0 | xargs -0 ftransc -f aac -q high

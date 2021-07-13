@@ -1,0 +1,4 @@
+sudo apt-get install sox libsox-fmt-mp3
+
+
+to solve the sox problem initially
